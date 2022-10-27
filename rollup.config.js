@@ -1,3 +1,4 @@
+import copy from 'rollup-plugin-copy';
 import svelte from 'rollup-plugin-svelte';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -52,6 +53,14 @@ export default {
 		// some cases you'll need additional configuration -
 		// consult the documentation for details:
 		// https://github.com/rollup/plugins/tree/master/packages/commonjs
+
+		//Bootstrap 
+		copy({
+			targets: [{
+				src: 'node_modules/bootstrap/dist/**/*', 
+                dest: 'public/vendor/bootstrap' 
+			}]
+		}),
 		resolve({
 			browser: true,
 			dedupe: ['svelte']
